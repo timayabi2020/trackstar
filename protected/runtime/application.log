@@ -1,0 +1,38 @@
+2015/02/21 16:38:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in /srv/applications/yii1.1/tutor/framework/db/CDbConnection.php:381
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /srv/applications/yii1.1/tutor/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /srv/applications/yii1.1/tutor/framework/base/CModule.php(387): CDbConnection->init()
+#3 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(442): CModule->getComponent('db')
+#4 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#12 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CApplication->run()
+#13 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once('/srv/applicatio...')
+#14 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once('/srv/applicatio...')
+#15 {main}
+---
+2015/02/21 16:38:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in /srv/applications/yii1.1/tutor/framework/db/CDbConnection.php:381
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /srv/applications/yii1.1/tutor/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /srv/applications/yii1.1/tutor/framework/base/CModule.php(387): CDbConnection->init()
+#3 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(442): CModule->getComponent('db')
+#4 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#12 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CApplication->run()
+#13 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once('/srv/applicatio...')
+#14 {main}
+---
+2015/02/21 16:44:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trackstar.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
