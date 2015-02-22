@@ -36,3 +36,111 @@ Stack trace:
 #14 {main}
 ---
 2015/02/21 16:44:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trackstar.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2015/02/22 09:59:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'project_
+id' doesn't exist in table. The SQL statement executed was: ALTER TABLE `tbl_issue` ADD CONSTRAINT `fk_issue_project` FOREIGN KEY (`project_
+id`) REFERENCES `tbl_project` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT.
+2015/02/22 09:59:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'project_
+id' doesn't exist in table. The SQL statement executed was: ALTER TABLE `tbl_issue` ADD CONSTRAINT `fk_issue_project` FOREIGN KEY (`project_
+id`) REFERENCES `tbl_project` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT' in /srv/applications/yii1.1/tutor/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/db/CDbCommand.php(1432): CDbCommand->execute()
+#1 /srv/applications/yii1.1/tutor/framework/db/CDbMigration.php(343): CDbCommand->addForeignKey('fk_issue_projec...', 'tbl_issue', 'project_\nid', 'tbl_project', 'id', 'CASCADE', 'RESTRICT')
+#2 /srv/applications/yii1.1/tutor/framework/trackstar/protected/migrations/m150222_065414_create_issue_user_and_assignment_tables.php(43): CDbMigration->addForeignKey('fk_issue_projec...', 'tbl_issue', 'project_\nid', 'tbl_project', 'id', 'CASCADE', 'RESTRICT')
+#3 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(385): m150222_065414_create_issue_user_and_assignment_tables->up()
+#4 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150222_065414_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CApplication->run()
+#11 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once('/srv/applicatio...')
+#12 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once('/srv/applicatio...')
+#13 {main}
+---
+2015/02/22 10:00:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_issue' already exists. The SQL statement executed was: CREATE TABLE `tbl_issue` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` varchar(255) NOT NULL,
+	`description` text,
+	`project_id` int(11) DEFAULT NULL,
+	`type_id` int(11) DEFAULT NULL,
+	`status_id` int(11) DEFAULT NULL,
+	`owner_id` int(11) DEFAULT NULL,
+	`requester_id` int(11) DEFAULT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`create_user_id` int(11) DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`update_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB.
+2015/02/22 10:00:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_issue' already exists. The SQL statement executed was: CREATE TABLE `tbl_issue` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` varchar(255) NOT NULL,
+	`description` text,
+	`project_id` int(11) DEFAULT NULL,
+	`type_id` int(11) DEFAULT NULL,
+	`status_id` int(11) DEFAULT NULL,
+	`owner_id` int(11) DEFAULT NULL,
+	`requester_id` int(11) DEFAULT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`create_user_id` int(11) DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`update_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB' in /srv/applications/yii1.1/tutor/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/db/CDbCommand.php(1321): CDbCommand->execute()
+#1 /srv/applications/yii1.1/tutor/framework/db/CDbMigration.php(228): CDbCommand->createTable('tbl_issue', Array, 'ENGINE=InnoDB')
+#2 /srv/applications/yii1.1/tutor/framework/trackstar/protected/migrations/m150222_065414_create_issue_user_and_assignment_tables.php(20): CDbMigration->createTable('tbl_issue', Array, 'ENGINE=InnoDB')
+#3 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(385): m150222_065414_create_issue_user_and_assignment_tables->up()
+#4 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m150222_065414_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CApplication->run()
+#11 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once('/srv/applicatio...')
+#12 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once('/srv/applicatio...')
+#13 {main}
+---
+2015/02/22 10:06:49 [error] [php] include(m150222_070542_create_issue_user_and_assignment_tables.php): failed to open stream: No such file or directory (/srv/applications/yii1.1/tutor/framework/YiiBase.php:421)
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(429): spl_autoload_call()
+#1 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(384): MigrateCommand->instantiateMigration()
+#2 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp()
+#3 unknown(0): MigrateCommand->actionUp()
+#4 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#5 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): MigrateCommand->run()
+#6 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#7 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#8 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CConsoleApplication->run()
+#9 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once()
+#10 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once()
+
+2015/02/22 10:08:26 [error] [php] include(m150222_070542_create_issue_user_and_assignment_tables.php): failed to open stream: No such file or directory (/srv/applications/yii1.1/tutor/framework/YiiBase.php:421)
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(429): spl_autoload_call()
+#1 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(384): MigrateCommand->instantiateMigration()
+#2 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp()
+#3 unknown(0): MigrateCommand->actionUp()
+#4 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#5 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): MigrateCommand->run()
+#6 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#7 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#8 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CConsoleApplication->run()
+#9 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once()
+#10 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once()
+
+2015/02/22 10:09:29 [error] [php] include(m150222_070542_create_issue_user_and_assignment_tables.php): failed to open stream: No such file or directory (/srv/applications/yii1.1/tutor/framework/YiiBase.php:421)
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(429): spl_autoload_call()
+#1 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(384): MigrateCommand->instantiateMigration()
+#2 /srv/applications/yii1.1/tutor/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp()
+#3 unknown(0): MigrateCommand->actionUp()
+#4 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#5 /srv/applications/yii1.1/tutor/framework/console/CConsoleCommandRunner.php(67): MigrateCommand->run()
+#6 /srv/applications/yii1.1/tutor/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#7 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#8 /srv/applications/yii1.1/tutor/framework/yiic.php(33): CConsoleApplication->run()
+#9 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once()
+#10 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once()
+
