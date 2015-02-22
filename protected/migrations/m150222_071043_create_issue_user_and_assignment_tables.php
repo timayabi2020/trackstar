@@ -1,6 +1,6 @@
 <?php
 
-class m150222_065414_create_issue_user_and_assignment_tables extends CDbMigration {
+class m150222_071043_create_issue_user_and_assignment_tables extends CDbMigration {
 
     public function safeUp() {
         //create the issue table
