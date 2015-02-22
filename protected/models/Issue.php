@@ -32,6 +32,9 @@ class Issue extends CActiveRecord {
     const TYPE_BUG = 0;
     const TYPE_FEATURE = 1;
     const TYPE_TASK = 2;
+    const STATUS_NOT_STARTED = 3;
+    const STATUS_STARTED = 4;
+    const STATUS_FINISHED = 5;
 
     public static function model($className = __CLASS__) {
         return parent::model($className);
@@ -131,7 +134,18 @@ class Issue extends CActiveRecord {
             self::TYPE_BUG => 'Bug',
             self::TYPE_FEATURE => 'Feature',
             self::TYPE_TASK => 'Task',
+
         );
     }
+
+     public function getStatusOptions() {
+        return array(
+            self::STATUS_NOT_STARTED => 'Not started',
+            self::STATUS_STARTED => 'Started',
+            self::STATUS_FINISHED => 'Finished',
+
+        );
+    }
+
 
 }
