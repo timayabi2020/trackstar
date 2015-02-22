@@ -67,9 +67,13 @@ class Issue extends CActiveRecord {
     /**
      * @return array relational rules.
      */
+
+    /**
+     * @return array relational rules.
+     */
     public function relations() {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
+//NOTE: you may need to adjust the relation name and the related
+// class name for the relations automatically generated below.
         return array(
             'requester' => array(self::BELONGS_TO, 'User', 'requester_id'),
             'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
@@ -134,18 +138,15 @@ class Issue extends CActiveRecord {
             self::TYPE_BUG => 'Bug',
             self::TYPE_FEATURE => 'Feature',
             self::TYPE_TASK => 'Task',
-
         );
     }
 
-     public function getStatusOptions() {
+    public function getStatusOptions() {
         return array(
             self::STATUS_NOT_STARTED => 'Not started',
             self::STATUS_STARTED => 'Started',
             self::STATUS_FINISHED => 'Finished',
-
         );
     }
-
 
 }

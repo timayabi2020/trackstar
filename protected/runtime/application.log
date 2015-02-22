@@ -186,3 +186,22 @@ Stack trace:
 #9 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic.php(7): require_once()
 #10 /srv/applications/yii1.1/tutor/framework/trackstar/protected/yiic(4): require_once()
 
+2015/02/22 18:28:45 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a project before
+performing this action.' in /srv/applications/yii1.1/tutor/framework/trackstar/protected/controllers/IssueController.php:195
+Stack trace:
+#0 /srv/applications/yii1.1/tutor/framework/web/filters/CInlineFilter.php(58): IssueController->filterProjectContext(Object(CFilterChain))
+#1 /srv/applications/yii1.1/tutor/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /srv/applications/yii1.1/tutor/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /srv/applications/yii1.1/tutor/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /srv/applications/yii1.1/tutor/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /srv/applications/yii1.1/tutor/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /srv/applications/yii1.1/tutor/framework/web/CController.php(291): CFilterChain->run()
+#7 /srv/applications/yii1.1/tutor/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /srv/applications/yii1.1/tutor/framework/web/CWebApplication.php(282): CController->run('create')
+#9 /srv/applications/yii1.1/tutor/framework/web/CWebApplication.php(141): CWebApplication->runController('issue/create')
+#10 /srv/applications/yii1.1/tutor/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /srv/applications/yii1.1/tutor/framework/trackstar/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/trackstar/index.php?r=issue/create
+HTTP_REFERER=http://localhost/trackstar/index.php?r=issue/
+---
