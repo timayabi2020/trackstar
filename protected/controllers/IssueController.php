@@ -59,20 +59,21 @@ class IssueController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Issue;
-
+        // $model = new Issue;
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Issue'])) {
-            $model->attributes = $_POST['Issue'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
-        }
+        /* if (isset($_POST['Issue'])) {
+          $model->attributes = $_POST['Issue'];
+          if ($model->save())
+          $this->redirect(array('view', 'id' => $model->id));
+          }
 
-        $this->render('create', array(
-            'model' => $model,
-        ));
+          $this->render('create', array(
+          'model' => $model,
+          )); */
+        $model = new Issue;
+        $model->project_id = $this->_project->id;
     }
 
     /**
