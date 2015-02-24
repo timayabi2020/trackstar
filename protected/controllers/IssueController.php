@@ -15,7 +15,7 @@ class IssueController extends Controller {
     public function filters() {
         return array(
             'accessControl', // perform access control for CRUD operations
-            'projectContext + create', //Check to ensure valid project context
+            'projectContext + create index admin', //Check to ensure valid project context
         );
     }
 
@@ -73,8 +73,6 @@ class IssueController extends Controller {
         $this->render('create', array(
             'model' => $model,
         ));
-
-
     }
 
     /**
@@ -115,8 +113,20 @@ class IssueController extends Controller {
     /**
      * Lists all models.
      */
+    /* public function actionIndex() {
+      $dataProvider = new CActiveDataProvider('Issue');
+      $this->render('index', array(
+      'dataProvider' => $dataProvider,
+      ));
+      } */
+
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Issue');
+        $dataProvider = new CActiveDataProvider('Issue', array(
+            'criteria' => array(
+                'condition' => 'project_id=:projectId',
+                'params' => array(':projectId' => $this->_project->id),
+            ),
+        ));
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));
@@ -130,6 +140,7 @@ class IssueController extends Controller {
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Issue']))
             $model->attributes = $_GET['Issue'];
+        $model->project_id = $this->_project->id;
 
         $this->render('admin', array(
             'model' => $model,

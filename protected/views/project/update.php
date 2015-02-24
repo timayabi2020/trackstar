@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Create Project', 'url'=>array('create')),
 	array('label'=>'View Project', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage Project', 'url'=>array('admin')),
+    //array('label'=>'Create Issue', 'url'=>array('view', 'id'=>$model->id)),
 );
 ?>
 
